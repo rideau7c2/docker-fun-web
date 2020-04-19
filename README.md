@@ -28,8 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Docker
 ### For docker [localhost:10080](http://localhost:10080/), for docker-tools [192.168.99.100:10080](http://192.168.99.100:10080/) 
-#### Build image
+#### Build image from local code
 `docker build -f Dockerfile -t docker-fun-web:v1 .`
+#### Build image from [repo](https://github.com/rideau7c2/docker-fun-web)
+`docker build -f Dockerfil_clone -t docker-fun-web:v1 .`
 #### Show images
 `docker images`
 #### Run container in background

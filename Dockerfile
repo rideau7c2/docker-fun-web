@@ -9,4 +9,3 @@ FROM nginx:1.17.9-alpine as prod-stage
 COPY --from=build-step /app/dist/docker-fun /usr/share/nginx/html
 EXPOSE 10080
 CMD ["nginx", "-g", "daemon off;"]
-

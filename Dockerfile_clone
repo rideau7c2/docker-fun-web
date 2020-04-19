@@ -1,0 +1,16 @@
+FROM alpine/git:latest as checkout
+WORKDIR /code
+RUN git clone https://github.com/rideau7c2/docker-fun-web.git
+
+FROM node:12.16.1-alpine3.10 as build
+WORKDIR /app
+COPY --from=checkout /code/docker-fun-web/package.json .
+RUN npm install
+COPY --from=chceckout /code/docker-fun-web .
+RUN npm run build
+
+FROM nginx:1.17.9-alpine
+COPY --from=build /app/dist/docker-fun /usr/share/nginx/html
+EXPOSE 10080
+CMD ["nginx", "-g", "daemon off;"]
+
