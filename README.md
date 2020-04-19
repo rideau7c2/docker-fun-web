@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Docker
+### For docker [localhost:10080](http://localhost:10080/), for docker-tools [192.168.99.100:10080](http://192.168.99.100:10080/) 
+#### Build image
+`docker build -f Dockerfile -t docker-fun-web:v1 .`
+#### Show images
+`docker images`
+#### Run container in background
+`docker run -d -p 10080:80 --name fun-web-v1 docker-fun-web:v1`
+#### Show running containers
+`docker ps`
+#### Stop container
+`docker stop fun-web-v1`
