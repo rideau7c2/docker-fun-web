@@ -40,3 +40,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `docker ps`
 #### Stop container
 `docker stop fun-web-v1`
+### docker-compose
+`docker-compose up` to start, 
+`Ctrl + C` few times to stop

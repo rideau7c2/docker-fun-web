@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  database:
+    container_name: "compose-mongo"
+    image: mongo:4.2.5
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+  api:
+    container_name: "compose-api"
+    build:
+      dockerfile: "Dockerfile_api"
+      context: .
+    ports:
+      - "18080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_SECURITY_USER_NAME: "docker"
+      SPRING_SECURITY_USER_PASSWORD: "dockerpass"
+  web:
+    container_name: "compose-web"
+    build: .
+    ports:
+      - "10080:80"
+    depends_on:
+      - api
